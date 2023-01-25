@@ -17,7 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select * from SalesLT.Product",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -43,7 +42,17 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlTable_gen",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"ds_name_table": {
+								"value": "@pipeline().parameters.table_name_par",
+								"type": "Expression"
+							},
+							"ds_schema_table": {
+								"value": "@pipeline().parameters.schema_par",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
