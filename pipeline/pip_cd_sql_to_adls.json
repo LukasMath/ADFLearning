@@ -279,7 +279,7 @@
 									"TABLE_NAME": "@{pipeline().parameters.table_name_par}",
 									"TIMESTAMP": "@{utcnow()}",
 									"ERRODESCRIPTION": "NAO EXISTE NOVOS REGISTROS PARA ESTA TABELA",
-									"TO": "lukas_matheus@outlok.com",
+									"TO": "lukas_matheus@outlook.com",
 									"SUBJECT": "INGESTAO DIARIA"
 								}
 							}
