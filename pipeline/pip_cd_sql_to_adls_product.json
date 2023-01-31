@@ -240,10 +240,6 @@
 								"secureInput": false
 							},
 							"userProperties": [],
-							"linkedServiceName": {
-								"referenceName": "ls_AzureSqlDatabase",
-								"type": "LinkedServiceReference"
-							},
 							"typeProperties": {
 								"scripts": [
 									{
@@ -302,8 +298,7 @@
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string",
-				"defaultValue": "AdventureWorks/Incremental/Product"
+				"type": "string"
 			}
 		},
 		"variables": {
