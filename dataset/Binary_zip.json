@@ -10,8 +10,13 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "root/sales/csv",
+				"fileName": "sales.zip",
+				"folderPath": "root/sales/zip",
 				"fileSystem": "landing"
+			},
+			"compression": {
+				"type": "ZipDeflate",
+				"level": "Fastest"
 			}
 		}
 	}
