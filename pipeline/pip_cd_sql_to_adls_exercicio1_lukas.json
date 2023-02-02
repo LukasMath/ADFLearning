@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select isnull(Last_Modified,'1900-01-01') Last_Modified from dbo.watermark where table_name = '@{pipeline().parameters.table_name_par}'",
+							"value": "select table_name, Last_Modified\nfrom dbo.watermark\nwhere table_name = '@{pipeline().parameters.table_name_par}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
