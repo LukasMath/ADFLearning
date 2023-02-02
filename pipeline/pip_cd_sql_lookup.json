@@ -1,5 +1,5 @@
 {
-	"name": "pipeline3",
+	"name": "pip_cd_sql_lookup",
 	"properties": {
 		"activities": [
 			{
@@ -43,6 +43,11 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup1').output",
+						"type": "Expression"
+					},
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Execute Pipeline1",
@@ -54,7 +59,17 @@
 									"referenceName": "pip_cd_sql_to_adls_exercicio1_lukas",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"schema_par": {
+										"value": "@item().watermark\r\n",
+										"type": "Expression"
+									},
+									"table_name_par": {
+										"value": "@item().table_name_par",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
