@@ -251,7 +251,7 @@
 			},
 			"table_name_par": {
 				"type": "string",
-				"defaultValue": "Product"
+				"defaultValue": "TableName"
 			},
 			"container_par": {
 				"type": "string",
