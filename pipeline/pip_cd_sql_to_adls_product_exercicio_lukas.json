@@ -258,7 +258,8 @@
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "adventureworks/incremetal"
 			}
 		},
 		"variables": {
