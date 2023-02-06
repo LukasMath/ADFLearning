@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LastModified",
+				"name": "LastModified_Watermark",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,10 +17,6 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": {
-							"value": "select isnull(Last_Modified,'1900-01-01') Last_Modified from dbo.watermark where table_name = '@{pipeline().parameters.table_name_par}'",
-							"type": "Expression"
-						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -42,7 +38,7 @@
 				}
 			},
 			{
-				"name": "MaxLastModified",
+				"name": "MaxLastModified_Watermark",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -74,57 +70,17 @@
 				}
 			},
 			{
-				"name": "Set ultimo valor lido",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "LastModified",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "last_modified",
-					"value": {
-						"value": "@activity('LastModified').output.firstRow.Last_Modified",
-						"type": "Expression"
-					}
-				}
-			},
-			{
-				"name": "Set ultimo valor escrito",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "MaxLastModified",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "max_valor_escrito",
-					"value": {
-						"value": "@activity('MaxLastModified').output.firstRow.ModifiedDate",
-						"type": "Expression"
-					}
-				}
-			},
-			{
 				"name": "Wait",
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Set ultimo valor lido",
+						"activity": "LastModified_Watermark",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Set ultimo valor escrito",
+						"activity": "MaxLastModified_Watermark",
 						"dependencyConditions": [
 							"Succeeded"
 						]
