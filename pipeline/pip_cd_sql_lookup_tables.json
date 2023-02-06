@@ -61,17 +61,11 @@
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
-								"waitOnCompletion": true,
-								"parameters": {
-									"schema_par": {
-										"value": "@item().watermark\r\n",
-										"type": "Expression"
-									},
-									"table_name_par": {
-										"value": "@item().table_name_par",
-										"type": "Expression"
-									}
-								}
+								"pipeline": {
+									"referenceName": "pip_cd_sql_to_adls_product_exercicio_lukas",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
 							}
 						}
 					]
