@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "5m Sales Records.csv",
-				"folderPath": "Sales",
+				"folderPath": "sales",
 				"fileSystem": "landing"
 			},
 			"columnDelimiter": ",",
