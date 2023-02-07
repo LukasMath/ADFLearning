@@ -2,7 +2,7 @@
 	"name": "Binary_zip",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "Ls_AzureDataLakeStorage",
+			"referenceName": "AzureDataLakeStorage",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
