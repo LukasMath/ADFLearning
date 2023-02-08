@@ -5,7 +5,14 @@
 			{
 				"name": "Lookup_Tables",
 				"type": "Lookup",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -48,7 +55,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Tables').output.value",
+						"value": "@activity('Lookup_Tables').output.firstRow",
 						"type": "Expression"
 					},
 					"isSequential": true,
@@ -57,9 +64,58 @@
 							"name": "If Condition1",
 							"type": "IfCondition",
 							"dependsOn": [],
-							"userProperties": []
+							"userProperties": [],
+							"typeProperties": {
+								"expression": {
+									"value": "@contains(variables('Tables_Load'), item().table_name)",
+									"type": "Expression"
+								},
+								"ifTrueActivities": [
+									{
+										"name": "Execute Pipeline",
+										"type": "ExecutePipeline",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"pipeline": {
+												"referenceName": "pip_cd_sql_to_adls_desafio",
+												"type": "PipelineReference"
+											},
+											"waitOnCompletion": true,
+											"parameters": {
+												"schema_par": {
+													"value": "@pipeline().parameters.shema_par",
+													"type": "Expression"
+												},
+												"table_name_par": {
+													"value": "@pipeline().parameters.table_par",
+													"type": "Expression"
+												},
+												"container_par": {
+													"value": "@pipeline().parameters.container_par",
+													"type": "Expression"
+												},
+												"directory_par": {
+													"value": "@pipeline().parameters.directory_par",
+													"type": "Expression"
+												}
+											}
+										}
+									}
+								]
+							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Tables_Load",
+					"value": "[\"Address\",\"Customer\",\"CustomerAddress\",\"Product\",\"ProductDescription\",\"ProductModel\",\"ProductModelProductDescription\""
 				}
 			}
 		],
@@ -69,7 +125,20 @@
 				"defaultValue": "salesLT"
 			},
 			"table_par": {
+				"type": "string",
+				"defaultValue": "Product"
+			},
+			"container_par": {
+				"type": "string",
+				"defaultValue": "landing"
+			},
+			"directory_par": {
 				"type": "string"
+			}
+		},
+		"variables": {
+			"Tables_Load": {
+				"type": "String"
 			}
 		},
 		"annotations": []
