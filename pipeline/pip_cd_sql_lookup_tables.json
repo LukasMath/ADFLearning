@@ -16,25 +16,20 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "ParquetSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						}
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "select table_name from INFORMATION_SCHEMA.TABLES where table_schema = '@{pipeline().parameters.shema_par}' and TABLE_TYPE = 'BASE TABLE';",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "Parquet",
+						"referenceName": "AzureSqlTable_gen",
 						"type": "DatasetReference",
 						"parameters": {
-							"ds_container": {
-								"value": "@pipeline().parameters.shema_par",
-								"type": "Expression"
-							},
-							"ds_directory": {
-								"value": "@pipeline().parameters.table_par",
-								"type": "Expression"
-							}
+							"ds_name_table": "Product",
+							"ds_schema_table": "salesLT"
 						}
 					}
 				}
@@ -53,23 +48,16 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Tables').output",
+						"value": "@activity('Lookup_Tables').output.value",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Execute Pipeline",
-							"type": "ExecutePipeline",
+							"name": "If Condition1",
+							"type": "IfCondition",
 							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "pip_cd_sql_to_adls_product_exercicio_lukas",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true
-							}
+							"userProperties": []
 						}
 					]
 				}
