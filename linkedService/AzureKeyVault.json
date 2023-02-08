@@ -1,11 +1,11 @@
 {
 	"name": "AzureKeyVault",
 	"properties": {
+		"description": "Teste",
 		"annotations": [],
 		"type": "AzureKeyVault",
 		"typeProperties": {
 			"baseUrl": "https://akv-academy-lukas.vault.azure.net/"
-		},
-		"description": "Teste"
+		}
 	}
 }
