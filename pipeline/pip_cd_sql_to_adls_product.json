@@ -272,7 +272,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"url": "https://prod-24.eastus.logic.azure.com:443/workflows/87876c8fe38c4a9982e0893eeb8224b5/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=FmBAzHOMQVUIorLXc-p50e0v_0cJn4Kpv9VQK7mtdHE",
+								"url": "https://prod-86.eastus.logic.azure.com:443/workflows/742e9fb906f04303b11e92e726cd78a2/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=6ezWzfJuwrrlmOA-6Ua4SeKhsZi6jE8AIFQveKBSd_k",
 								"method": "POST",
 								"body": {
 									"RUN_ID": "@{pipeline().RunId}",
