@@ -68,7 +68,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@contains(variables('Tables_Load'), item().table_name)",
+									"value": "@contains(variables('Tables_Load_Incremental'), item().table_name)",
 									"type": "Expression"
 								},
 								"ifTrueActivities": [
@@ -115,7 +115,7 @@
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"variableName": "Tables_Load",
+					"variableName": "Tables_Load_Incremental",
 					"value": "[\"Address\",\"Customer\",\"CustomerAddress\",\"Product\",\"ProductDescription\",\"ProductModel\",\"ProductModelProductDescription\""
 				}
 			}
@@ -139,7 +139,7 @@
 			}
 		},
 		"variables": {
-			"Tables_Load": {
+			"Tables_Load_Incremental": {
 				"type": "String",
 				"defaultValue": "value"
 			}

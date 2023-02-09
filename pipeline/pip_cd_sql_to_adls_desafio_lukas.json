@@ -67,10 +67,11 @@
 						"referenceName": "AzureSqlTable_gen",
 						"type": "DatasetReference",
 						"parameters": {
-							"ds_name_table": "TableName",
+							"ds_name_table": "Product",
 							"ds_schema_table": "salesLT"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -262,7 +263,8 @@
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "adventureworks/incremental"
 			}
 		},
 		"variables": {
@@ -272,7 +274,7 @@
 			"max_valor_escrito": {
 				"type": "String"
 			},
-			"Tables_Load": {
+			"Tables_Load_Incremental": {
 				"type": "String",
 				"defaultValue": "value"
 			}
