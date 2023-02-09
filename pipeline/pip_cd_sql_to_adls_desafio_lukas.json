@@ -1,5 +1,5 @@
 {
-	"name": "pip_cd_sql_to_adls_desafio",
+	"name": "pip_cd_sql_to_adls_desafio_lukas",
 	"properties": {
 		"activities": [
 			{
@@ -273,7 +273,8 @@
 				"type": "String"
 			},
 			"Tables_Load": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "value"
 			}
 		},
 		"annotations": []

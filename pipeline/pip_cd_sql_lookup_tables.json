@@ -78,7 +78,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"pipeline": {
-												"referenceName": "pip_cd_sql_to_adls_desafio",
+												"referenceName": "pip_cd_sql_to_adls_desafio_lukas",
 												"type": "PipelineReference"
 											},
 											"waitOnCompletion": true,
