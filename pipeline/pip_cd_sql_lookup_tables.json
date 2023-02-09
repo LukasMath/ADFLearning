@@ -7,7 +7,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "Set variable1",
+						"activity": "Tables_Array",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -38,7 +38,8 @@
 							"ds_name_table": "Product",
 							"ds_schema_table": "salesLT"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -109,7 +110,7 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "Tables_Array",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"userProperties": [],
