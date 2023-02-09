@@ -88,7 +88,7 @@
 													"type": "Expression"
 												},
 												"table_name_par": {
-													"value": "@pipeline().parameters.table_par",
+													"value": "@pipeline().parameters.table_name_par",
 													"type": "Expression"
 												},
 												"container_par": {
@@ -124,16 +124,17 @@
 				"type": "string",
 				"defaultValue": "salesLT"
 			},
-			"table_par": {
-				"type": "string",
-				"defaultValue": "Product"
-			},
 			"container_par": {
 				"type": "string",
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "adventureworks/incremental"
+			},
+			"table_name_par": {
+				"type": "string",
+				"defaultValue": "Product"
 			}
 		},
 		"variables": {
