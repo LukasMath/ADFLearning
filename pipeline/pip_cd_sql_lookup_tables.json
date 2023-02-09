@@ -55,10 +55,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Lookup_Tables').output.firstRow",
+						"value": "@activity('Lookup_Tables').output.value",
 						"type": "Expression"
 					},
-					"isSequential": true,
+					"isSequential": false,
 					"activities": [
 						{
 							"name": "If Condition1",
@@ -138,7 +138,8 @@
 		},
 		"variables": {
 			"Tables_Load": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "value"
 			}
 		},
 		"annotations": []
