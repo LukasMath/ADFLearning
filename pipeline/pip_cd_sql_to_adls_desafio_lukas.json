@@ -256,7 +256,7 @@
 			},
 			"table_name_par": {
 				"type": "string",
-				"defaultValue": "Product"
+				"defaultValue": "table_name"
 			},
 			"container_par": {
 				"type": "string",
@@ -264,19 +264,21 @@
 			},
 			"directory_par": {
 				"type": "string",
-				"defaultValue": "adfslearninglukas/landing"
+				"defaultValue": "landing/adventureworks"
 			}
 		},
 		"variables": {
 			"last_modified": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "Last_Modified"
 			},
 			"max_valor_escrito": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "Last_Modified"
 			},
 			"Tables_Load_Incremental": {
 				"type": "String",
-				"defaultValue": "value"
+				"defaultValue": "table_name"
 			}
 		},
 		"annotations": []

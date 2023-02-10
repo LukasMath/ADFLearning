@@ -137,7 +137,7 @@
 		"variables": {
 			"Tables_Load_Incremental": {
 				"type": "String",
-				"defaultValue": "value"
+				"defaultValue": "table_name"
 			}
 		},
 		"annotations": []
