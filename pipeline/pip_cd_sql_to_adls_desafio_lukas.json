@@ -116,7 +116,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(variables('last_modified'), variables('max_valor_escrito'))",
+						"value": "@equals(activity('MaxLastModified').output.firstRow.ModifiedDate, activity('LastModified').output.firstRow.Last_Modified)",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
