@@ -89,7 +89,7 @@
 													"type": "Expression"
 												},
 												"table_name_par": {
-													"value": "@pipeline().parameters.table_name_par",
+													"value": "@item().table_name",
 													"type": "Expression"
 												},
 												"container_par": {
@@ -131,11 +131,7 @@
 			},
 			"directory_par": {
 				"type": "string",
-				"defaultValue": "adfslearninglukas/landing"
-			},
-			"table_name_par": {
-				"type": "string",
-				"defaultValue": "Product"
+				"defaultValue": "adventureworks"
 			}
 		},
 		"variables": {
