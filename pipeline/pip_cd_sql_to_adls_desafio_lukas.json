@@ -269,8 +269,7 @@
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string",
-				"defaultValue": "adventureworks/landing"
+				"type": "string"
 			}
 		},
 		"variables": {
