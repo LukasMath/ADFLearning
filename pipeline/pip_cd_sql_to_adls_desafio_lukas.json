@@ -67,11 +67,17 @@
 						"referenceName": "AzureSqlTable_gen",
 						"type": "DatasetReference",
 						"parameters": {
-							"ds_name_table": "table_name",
-							"ds_schema_table": "salesLT"
+							"ds_name_table": {
+								"value": "@pipeline().parameters.table_name_par",
+								"type": "Expression"
+							},
+							"ds_schema_table": {
+								"value": "@pipeline().parameters.schema_par",
+								"type": "Expression"
+							}
 						}
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
