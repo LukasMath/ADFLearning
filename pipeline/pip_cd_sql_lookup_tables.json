@@ -116,7 +116,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "Tables_Load_Incremental",
-					"value": "[\"Address\",\"Product\",\"Customer\",\"CustomerAddress\",\"Product\",\"ProductCategory\",\"ProductDescription\",\"ProductModel\",\"ProductModelProductDescription\",\"SalesOrderDetail\",SalesOrderHeader\"]"
+					"value": "[\"Address\",\"Product\",\"Customer\",\"CustomerAddress\",\"ProductCategory\",\"ProductDescription\",\"ProductModel\",\"ProductModelProductDescription\",\"SalesOrderDetail\",SalesOrderHeader\"]"
 				}
 			}
 		],

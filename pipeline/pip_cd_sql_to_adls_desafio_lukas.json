@@ -136,7 +136,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "select * from @{pipeline().parameters.schema_par}.@{pipeline().parameters.table_name_par} where ModifiedDate > '@{variables('Last_Modified')}'and ModifiedDate <= '@{variables('max_valor_escrito')}'",
+										"value": "select * from @{pipeline().parameters.schema_par}.@{pipeline().parameters.table_name_par} where ModifiedDate > '@{activity('LastModified').output.firstRow.Last_Modified}' and ModifiedDate <= '@{activity('MaxLastModified').output.firstRow.ModifiedDate}'\n\n\n\n",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
