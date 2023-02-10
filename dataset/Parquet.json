@@ -15,8 +15,7 @@
 				"defaultValue": "adfslearninglukas/landing"
 			},
 			"ds_filename": {
-				"type": "string",
-				"defaultValue": "table_name"
+				"type": "string"
 			}
 		},
 		"annotations": [],
@@ -24,10 +23,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().ds_filename",
-					"type": "Expression"
-				},
 				"folderPath": {
 					"value": "@dataset().ds_directory",
 					"type": "Expression"
