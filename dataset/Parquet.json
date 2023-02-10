@@ -13,9 +13,6 @@
 			"ds_directory": {
 				"type": "string",
 				"defaultValue": "adfslearninglukas/landing"
-			},
-			"ds_filename": {
-				"type": "string"
 			}
 		},
 		"annotations": [],
