@@ -39,7 +39,7 @@
 							"ds_schema_table": "salesLT"
 						}
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
