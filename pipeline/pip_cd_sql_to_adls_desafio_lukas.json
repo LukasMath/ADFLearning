@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "select isnull(Last_Modified,'1900-01-01 00:00:00.000') Last_Modified from dbo.watermark where table_name = '@{pipeline().parameters.table_name_par}'",
+							"value": "select isnull(Last_Modified,'1900-01-01 00:00:00.000') as Last_Modified from dbo.watermark where table_name = '@{pipeline().parameters.table_name_par}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -116,7 +116,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('MaxLastModified').output.firstRow.ModifiedDate, activity('LastModified').output.firstRow.Last_Modified)",
+						"value": "@equals(activity('MaxLastModified').output.firstRow.ModifiedDate, activity('LastModified').output.firstRow.Last_Modified)\n\n\n\n",
 						"type": "Expression"
 					},
 					"ifFalseActivities": [
@@ -216,7 +216,7 @@
 									{
 										"type": "NonQuery",
 										"text": {
-											"value": "update dbo.watermark\nset Last_Modified = '@{variables('max_valor_escrito')}'\nwhere table_name = '@{pipeline().parameters.table_name_par}'",
+											"value": "[14:55] Leandro Monfrini de Arruda\nupdate dbo.watermark set last_Modified = '@{activity('MaxLastModified').output.firstRow.ModifiedDate}'where table_name = '@{pipeline().parameters.table_name_par}'\n\n\n\n",
 											"type": "Expression"
 										}
 									}
