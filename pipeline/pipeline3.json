@@ -20,11 +20,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"ds_container": "landing",
-							"ds_directory": "adfslearninglukas/Customer"
+							"ds_directory": "Customer/"
 						}
 					},
 					"fieldList": [
-						"itemName"
+						"childItems"
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
