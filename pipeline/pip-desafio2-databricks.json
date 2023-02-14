@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/treinamento-pocket-databricks/Spark SQL"
+					"notebookPath": "/treinamento-pocket-databricks/Spark Mount"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_AzureDatabricks",
@@ -40,7 +40,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "ls_AzureDatabricks",
+					"type": "LinkedServiceReference"
+				}
 			},
 			{
 				"name": "Customer",
