@@ -193,7 +193,7 @@
 							"type": "Script",
 							"dependsOn": [
 								{
-									"activity": "Execute Pipeline1",
+									"activity": "Silver",
 									"dependencyConditions": [
 										"Succeeded"
 									]
@@ -269,27 +269,7 @@
 							}
 						},
 						{
-							"name": "Execute Pipeline1",
-							"type": "ExecutePipeline",
-							"dependsOn": [
-								{
-									"activity": "Get_FileName",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"pipeline": {
-									"referenceName": "pip-desafio2-databricks",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true
-							}
-						},
-						{
-							"name": "Notebook1",
+							"name": "Bronze",
 							"type": "DatabricksNotebook",
 							"dependsOn": [
 								{
@@ -318,6 +298,36 @@
 										"value": "@activity('Get_FileName').output.itemName[0]",
 										"type": "Expression"
 									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "ls_AzureDatabricks",
+								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "Silver",
+							"type": "DatabricksNotebook",
+							"dependsOn": [
+								{
+									"activity": "Bronze",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": {
+									"value": "@concat('/treinamento-pocket-databricks/',pipeline().parameters.table_name_par)",
+									"type": "Expression"
 								}
 							},
 							"linkedServiceName": {
