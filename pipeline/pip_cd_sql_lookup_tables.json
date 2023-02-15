@@ -118,26 +118,6 @@
 					"variableName": "Tables_Load_Incremental",
 					"value": "[\"Address\",\"Product\",\"Customer\",\"CustomerAddress\",\"ProductCategory\",\"ProductDescription\",\"ProductModel\",\"ProductModelProductDescription\",\"SalesOrderDetail\",SalesOrderHeader\"]"
 				}
-			},
-			{
-				"name": "Execute Pipeline1",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "ForEach",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "pip-desafio2-databricks",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true
-				}
 			}
 		],
 		"parameters": {
@@ -150,7 +130,8 @@
 				"defaultValue": "landing"
 			},
 			"directory_par": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "/"
 			}
 		},
 		"variables": {

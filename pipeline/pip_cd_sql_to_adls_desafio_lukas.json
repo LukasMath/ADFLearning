@@ -259,7 +259,7 @@
 									}
 								},
 								"fieldList": [
-									"itemName"
+									"childItems"
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
@@ -295,7 +295,11 @@
 										"type": "Expression"
 									},
 									"filename": {
-										"value": "@activity('Get_FileName').output.itemName[0]",
+										"value": "@activity('Get_FileName').output.childItems[0].name",
+										"type": "Expression"
+									},
+									"table_name": {
+										"value": "@pipeline().parameters.table_name_par",
 										"type": "Expression"
 									}
 								}
@@ -328,6 +332,13 @@
 								"notebookPath": {
 									"value": "@concat('/treinamento-pocket-databricks/',pipeline().parameters.table_name_par)",
 									"type": "Expression"
+								},
+								"baseParameters": {
+									"table_name": {
+										"value": "@pipeline().parameters.table_name_par",
+										"type": "Expression"
+									},
+									"source_directory": "adventureworks/"
 								}
 							},
 							"linkedServiceName": {
