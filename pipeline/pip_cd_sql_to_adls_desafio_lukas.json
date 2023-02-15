@@ -263,6 +263,7 @@
 								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
 									"enablePartitionDiscovery": false
 								}
 							}
@@ -285,6 +286,43 @@
 									"type": "PipelineReference"
 								},
 								"waitOnCompletion": true
+							}
+						},
+						{
+							"name": "Notebook1",
+							"type": "DatabricksNotebook",
+							"dependsOn": [
+								{
+									"activity": "Get_FileName",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"notebookPath": "/treinamento-pocket-databricks/Move_landing_to_bronze",
+								"baseParameters": {
+									"source_directory": {
+										"value": "@concat(pipeline().parameters.directory_par, pipeline().parameters.table_name_par)",
+										"type": "Expression"
+									},
+									"filename": {
+										"value": "@activity('Get_FileName').output.itemName[0]",
+										"type": "Expression"
+									}
+								}
+							},
+							"linkedServiceName": {
+								"referenceName": "ls_AzureDatabricks",
+								"type": "LinkedServiceReference"
 							}
 						}
 					],
